@@ -1,0 +1,467 @@
+/* 主页样式表 */
+
+/* 顶部导航条容器 */
+*{margin: 0;
+	padding: 0;}
+.top-wrapper{
+	/* 设置宽度 */
+	width: 100%;
+	background-color: #333;
+	height: 40px;
+	/* 让文字居中 */
+	line-height: 40px;
+}
+
+.top-bar a{
+	font-size: 12px;
+	color: #b0b0b0;
+	display: block;
+	
+}
+
+.top-bar a:hover{
+	color: rgb(225,225,225);
+}
+
+.top-bar .line{
+	color:#3c433c;
+	font-size: 12px;
+	margin: 0 7px;
+}
+
+.service, .top-bar li{
+	float: left;
+}
+
+.cart{
+	float:right;
+
+}
+
+.user-info{
+	float:right;
+}
+
+.cart a{
+	text-align: center;
+	width: 120px;
+	background-color: #424242;
+	margin-left: 25px;
+	
+	}
+	
+	/* 为了鼠标移走之后不让弹出层消失, hover应该设定给公共的
+	 父元素, 即<ul>*/
+.cart:hover a{
+	color: rgb(255,103,0);
+	background-color: white;
+}
+.app .pop{
+	/* 鼠标不移入时高度是0，用overflow关闭溢出部分 */
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	left: -38px;
+	width: 124px;
+	
+	background-color: #fff;
+	text-align: center;
+	line-height: 1px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	z-index: 999;
+}
+.app .pop img{
+	width: 90px;
+	margin: 17px 17px 14px 17px;
+}
+.app .pop span{
+	color: #000;
+}
+
+/* 设置二维码下拉的小三角 */
+.app{
+	position: relative;
+}
+.app::after{
+	width: 0;
+	content: '';
+	height: 0;
+	/* 鼠标不移入时不显示元素 */
+	display: none;
+	position: absolute;
+	border:7px solid transparent;
+	border-top: none;
+	border-bottom-color: white;
+	bottom: 0px;
+	left: 15px;
+	right: 0;
+	
+}
+/* 注意这里的选择器 */
+.app:hover::after{
+	/* 鼠标移入时元素显现 */
+	display: block;
+}
+.app:hover .pop{
+	/* 鼠标移入时有了高度,且高度慢慢拉满 */
+	height: 148px;
+	transition: height 0.3s;
+}
+.cart{
+	position: relative;
+}
+.shopcart{
+	
+	height:0;
+	overflow: hidden;
+	width: 315px;
+	position: absolute;
+	left: -170px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	line-height: 100px;
+	z-index: 999;
+	background-color:white ;
+}
+.cart a:hover .shopcart{
+	height: 100px;
+	transition: height 0.3s;
+}
+
+/* ---------------------------------------------------------header导航条部分------------------------------------------------------------------------ */
+.header{
+	height: 100px;
+	
+	
+}
+.header .logo{
+	float: left;
+	margin-top:22px;
+	width: 55px;
+	height: 55px;
+	/* 开启相对定位方便后续a标签绝对定位 */
+	position: relative;
+	/* 当hover时图片移走,溢出了元素,使它溢出后消失 */
+	overflow: hidden;
+	text-indent: -999px;
+}
+.header .logo a{
+	/* 开启绝对定位使图片浮动,也方便后面使其位移以达到想要的hover效果 */
+	position: absolute;
+	left: 0;
+	width: 55px;
+	height: 55px;
+	/* 使mi logo居中 */
+	background-position: center ;
+	
+	background-color: rgb(255,103,0);
+	background-image: url(../img/mi-logo.png);
+	transition: left 0.3s; 
+	
+}
+.header .logo .mihome{
+	/* 开启定位使其移动到mi logo左边,方便后续hover效果 */
+	
+	left: -55px;
+
+
+	background-image: url(../img/mi-home.png);
+}
+.header .logo:hover .mui{
+	/* hover这个div class=logo时,mi logo图片向右移动55px,溢出此div, 被隐藏 */
+	left: 55px;
+	
+}
+.header .logo:hover .mihome{
+	left:0;
+	
+}
+
+.header .nav-wrapper{
+	float: left;
+	margin-left: 7px;
+}
+.header .nav{
+	
+	height: 100px;
+	
+	line-height: 100px;
+	padding-left: 58px;
+}
+.nav > li{
+	float: left;
+	text-decoration: none;
+
+	
+}
+.allgoods{
+	position: relative;
+	
+}
+
+.left-nav{
+	visibility: visible;
+	width: 230px;
+	height: 420px;
+	background-color: rgba(0,0,0,0.3);
+	position: absolute;
+	z-index: 999;
+	left: -120px;
+	line-height: 1;
+	padding: 20px 0;
+}
+.nav > li > a{
+	color: #000000;
+	font-size: 16px;
+	margin-right: 20px;
+	display: block;
+}
+
+.left-nav a{
+	display: block;
+	color: white;
+	line-height: 42px;
+	padding: 0 30px;
+	font-size: 14px;
+}
+.left-nav a:hover{
+	color: #FFFFFF;
+	background-color: #FF6700;
+}
+.left-nav a span{
+	float: right;
+	line-height: 42px;
+	color: white;
+}
+
+.nav .allgoods{
+	/* 隐藏全部商品,不能用display:none,因为我们希望他占据位置 */
+	visibility: hidden;
+}
+.nav > li > a:hover{
+	color: #ff6700;
+}
+
+.header-wrapper{
+	/* 开启相对定位,方便下面popup绝对定位 */
+	position: relative;
+}
+.nav-wrapper .popup{
+	width: 100%;
+	height: 0;
+	/* 离popup最近的开启了相对定位的祖先元素是head-wrapper,此时head-wrapper是popup的包含块,所以popup的宽度是相对于head-wrapper来定的 */
+	position: absolute;
+	top:100px;
+	left: 0;
+	z-index: 999;
+	overflow: hidden;
+	background-color: #FFFFFF;
+}
+/* li和popup是兄弟关系,用兄弟选择器, 但这里不用+,因为popup跟li隔了好多个li,这时应该用~选中后面所有的popup,事实上只有一个popup */
+.nav .show:hover ~ .popup, 
+/* 选择.popup:hover是为了让鼠标离开li时.popup不消失 */
+.popup:hover {
+	height: 228px;
+	border: 1px solid lightgray;
+	box-shadow: 0 5px 3px rgba(0,0,0,0.2);
+	transition: height 0.2s;
+}
+
+.search-wrapper{
+	width: 296px;
+	height: 50px;
+	float: right;
+	background-color: white;
+	margin-top: 25px;
+	
+}
+.search .search-inp{
+	float: left;
+	height: 50px;
+	width: 230px;
+	border: none;
+	padding-left: 10px;
+	outline: none;
+	border: 1px solid rgb(224,224,224);
+
+}
+.search .search-inp:focus{
+	border: 1px solid #FF6700;
+}
+.search .search-inp:focus+button{
+	border: 1px solid #FF6700;
+}
+.search .search-btn{
+	float: left;
+	width: 52px;
+	height: 52px;
+	border: 1px solid rgb(224,224,224);
+	border-left: none;
+	
+	padding: 0;
+	color: #616161;
+	background-color: #fff;
+	outline: none;
+}
+.search .search-btn:hover{
+	color: white;
+	background-color: #FF6700;
+	border-color: #FF6700;
+}
+/* 这里要使banner成为img的包涵块元素，方便使img定位及设置合适的宽度参照。
+img开启定位后脱离文档流，会使banner高度塌陷，在这里要手动设置高度*/
+.banner{
+	position: relative;
+	height: 460px;
+}
+.banner .img-list li{
+	position: absolute;
+}
+.banner img{
+	width: 100%;
+	vertical-align: top;
+	
+}
+/* 设置导航点儿 */
+.dots{
+	position: absolute;
+	right: 35px;
+	bottom: 27px;
+}
+.dots a{
+	float: right;
+	width: 6px;
+	height: 6px;
+	background-color: rgba(0,0,0,.4);
+	border: 2px solid rgba(255,255,255,.4);
+	border-radius: 50%;
+	margin-left: 8px;
+	
+}
+.dots a:hover{
+	border: 2px solid rgba(0,0,0,.4);
+	background-color: rgba(255,255,255,.7);
+}
+/* 设置小箭头 */
+.pre-next a{
+	width: 41px;
+	height: 69px;
+	background-image: url(../img/icon-slides.png);
+	position: absolute;
+	/* 以下三行设置箭头居中 */
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+}
+.pre-next .pre{
+	left:230px;
+	background-position: -84px 0;
+}
+.pre-next .next{
+	right:0;
+	background-position: -125px 0;
+}
+
+.pre:hover{
+	background-position: 0 0;
+}
+.next:hover{
+	background-position: -43px 0;
+}
+
+.right-nav{
+	width: 26px;
+	height: 206px;
+	background-color: white;
+	position: fixed;
+	/* 设置固定定位的垂直位置*/
+	bottom: 130px;
+	/* 布局等式：
+		left + margin—left + width + margin-right + right = 视口宽度 
+		auto + 0 + 26 + 0 +60px = 视口宽度
+		auto + 0 +26 + 0 + 50% = 视口宽度*/
+	right:50%;
+	margin-right: -639px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	
+}
+
+.bottom-wrapper{
+	margin-top: 14px;
+}
+.bottom{
+	background-color: white;
+	height: 170px;
+	
+}
+.bottom .shortcut,
+.bottom .ad-img,
+.bottom li{
+	float: left;
+}
+
+.bottom .shortcut{
+	width: 230px;
+	height: 168px;
+	background-color: #5f5750;
+	margin-right: 14px;
+	padding-top: 2px;
+}
+
+.bottom .ad-img li{
+
+	width: 316px;
+	margin-right: 16px;
+}
+.bottom .ad-img li:last-child{
+	margin-right: 0;
+}
+	
+.bottom .ad-img img{
+	width: 100%;
+
+}
+.bottom .shortcut li::before{
+	content: '';
+	position: absolute;
+	width: 64px;
+	height: 1px;
+	background-color: #665E57;
+	left: 0;
+	top: 0;
+	right: 0;
+	margin: 0 auto;
+
+}
+.bottom .shortcut li::after{
+	content:'';
+	position: absolute;
+	height: 70px;
+	width: 1px;
+	background-color: #665E57;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	
+	margin: auto 0;
+}
+.bottom .shortcut a{
+	display: block;
+	height: 84px;
+	width: 76px;
+	color: #cfccca;
+	text-align: center;
+	font-size: 12px;
+	overflow: hidden;
+}
+.bottom .shortcut span{
+	font-size: 22px;
+	display: block;
+	margin-top: 17px;
+	margin-bottom: 0.625rem;
+}
+.bottom .shortcut a:hover{
+	color: #FFFFFF;
+}
+.bottom .shortcut li{
+	position: relative;
+}

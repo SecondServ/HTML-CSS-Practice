@@ -1,0 +1,27 @@
+/* 公共样式表 */
+.clearfix::before,
+.clearfix::after{
+	content="";
+	display: table;
+	clear:both}
+body{
+	14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+	color: #333;
+	/* min-width设置body最小宽度 */
+	min-width: 1226px;
+	}
+.w{
+	/* 固定容器宽度 */
+	width: 1226px; 
+	/* 设定容器居中 */
+	margin: 0 auto;
+	}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+/* .top-bar a{
+	display: block;
+} */
